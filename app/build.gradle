@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "br.com.andreluciano.jnnerdnewsreader.app"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 2
+        versionName "2.0"
+    }
+
+    signingConfigs {
+        relase {
+            storeFile file("andre_keystore.jks")
+            storePassword "Tatu1793Android"
+            keyAlias "andre_keystore"
+            keyPassword "Andre1793Android"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.relase
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+
+    //compile 'com.squareup.okio:okio:1.3.0'
+   // compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'com.google.android.gms:play-services:7.3.0'
+}
